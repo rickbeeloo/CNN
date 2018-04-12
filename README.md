@@ -2,7 +2,7 @@ Lung cancer detection using a 3D CNN
 -------------
 *Authors: Rick Beeloo, Thomas Reinders and Koen van der Heide*
 
-###Introduction###
+###Introduction###<Br>
 Lung cancer is the leading cause of cancer-related deaths for both men and women across the developed world. Despite tremendous efforts to treat this cancer, the overall 5-year survival for all stages is dismally low at 15% [[1](https://www.ncbi.nlm.nih.gov/pubmed/9187198)]. In the daily practice of radiology, medical images from different modalities are read and interpreted by radiologists. Usually radiologists must analyze and evaluate these images comprehensively in a short time. But with the advances in modern medical technologies, the amount of imaging data is rapidly increasing. For example, CT examinations are being performed with thinner slices than in the past. The reading and interpretation time of radiologists will mount as the number of CT slices grows. Machine learning provides an effective way to automate the analysis and diagnosis for medical images. It can potentially reduce the burden on radiologists in the practice of radiology[[2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3372692/ "2")]. Although automatic cancer detection is faster than human curation, sequential machine learning is still time consuming and computer costly.  We therefore utilize graphics processing units (GPUs) to speed up this time consuming process and quantitively asses its profit. 
 
 
