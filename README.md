@@ -184,7 +184,7 @@ Using the **whole dataset** we get an average accuracy of  `77%` , while this se
 **Sick**|113 |249
 
 (*The columns are the predictions whereas the rows are the actual classes*). <br>
-As can be seen from this data we only classified 249 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
+As can be seen from this data we only classified 249 out of the 362 cancerous examples. We could only classify obivous cancerours examples, as for example this one:
 
 ![Alt text](images/sick_patient.PNG?raw=true "Title") <br>
 
