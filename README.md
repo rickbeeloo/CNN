@@ -138,6 +138,7 @@ cnn_test.py -f data/ -t data/test.npy -k 1.0
 ##  Evaluation ##
 **Testing the classifier** <br>
 The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
+![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
 
 ID  | Label|Predicted
 ------------- | -------------| -------------
