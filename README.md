@@ -28,9 +28,10 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
 - Added the ability to test the model on new data
-- Added thorough explanation for each of the required parameters
+- Added thorough explanation for each of the parameters required
+- Added the picture ids to the test output to be able to trace the predictions back to the corresponding images
 - Wrote the code Object Orientated by accommodating the model in a class as well as the preprocessor
-- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing the list indices manually. 
+- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific numbers
 - Added a function to randomly pop up the CT-scan images for either a *sick* or *healthy* person to get a better understanding of the data
 - The possibility to switch between ```cpu``` and ```gpu```
 - Timing function to time each training round
@@ -74,8 +75,8 @@ python splitter.py -d data\processed_data.npy -r 0.6 -t 0.2 -v 0.2 -o data/
 ```
 This will also show the number of instances in each of the sets:
 > [INFO] total data size: 19
-[INFO] train size: 11
-[INFO] validate size: 4
+>[INFO] train size: 11
+>[INFO] validate size: 4
 
 ------------
 
@@ -101,12 +102,12 @@ cnn.py -r data/training.npy -v data/validation.npy -o data/
 ```
 This will show the obtained accuracy after each epoch: <br>
 >[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
-[INFO] Accuracy: 0.75
+>[INFO] Accuracy: 0.75
 
 And after all epochs the overall accuracy, fitment percentages and the total training time: <br>
 >[INFO] Finished Accuracy: 0.75
-[INFO] fitment percent: 1.0
-[INFO] runtime: 15.150243174234687
+>[INFO] fitment percent: 1.0
+>[INFO] runtime: 15.150243174234687
 
 ------------
 
@@ -124,12 +125,27 @@ Parameter  | Explanation|Default
 ```-e```  | The  number of epochs|10
 ```-g```  | If the GPU should be used|True
 ```-n```  | The model name (for saving purposes)|model
+```-o```  | Output path (if export is preferred)|None
 ```-t```  | Path to the test data|-
 ```-f```  | Path to the folder containing the model|-
+
 
 Example:
 ```bash
 cnn_test.py -f data/ -t data/test.npy -k 1.0
 ```
 ##  Evaluation ##
-Using the whole dataset we get an average accuracy of around `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;). 
+**Testing the classifier**
+The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
+
+ID  | Label|Predicted
+------------- | -------------| -------------
+0a0c32c9e08cc2ea76a71649de56be6d	  | 0 | 0
+0a099f2549429d29b32f349e95fb2244	|0	|0
+0d19f1c627df49eb223771c28548350e	|0	|0
+0ddeb08e9c97227853422bd71a2a695e	|0	|0
+In this example the achieved accuracy is `100%`  as the label is the same as predicted in every case.
+The provided output format is easy to use as input for [R](https://www.r-project.org/) (for examples see `plots.R`). 
+
+
+Using the whole dataset we get an average accuracy of around `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;).  
