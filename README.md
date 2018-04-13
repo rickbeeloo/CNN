@@ -1,22 +1,20 @@
-Lung cancer detection using a 3D CNN 
--------------
+# Lung cancer detection using a 3D CNN 
+
 *Authors: Rick Beeloo, Thomas Reinders and Koen van der Heide*
-
-
-###Introduction###
+## introduction ###
 
 Lung cancer is the leading cause of cancer-related deaths for both men and women across the developed world. Despite tremendous efforts to treat this cancer, the overall 5-year survival for all stages is dismally low at 15% [[1](https://www.ncbi.nlm.nih.gov/pubmed/9187198)]. In the daily practice of radiology, medical images from different modalities are read and interpreted by radiologists. Usually radiologists must analyze and evaluate these images comprehensively in a short time. But with the advances in modern medical technologies, the amount of imaging data is rapidly increasing. For example, CT examinations are being performed with thinner slices than in the past. The reading and interpretation time of radiologists will mount as the number of CT slices grows. Machine learning provides an effective way to automate the analysis and diagnosis for medical images. It can potentially reduce the burden on radiologists in the practice of radiology[[2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3372692/ "2")]. Although automatic cancer detection is faster than human curation, sequential machine learning is still time consuming and computer costly.  We therefore utilize graphics processing units (GPUs) to speed up this time consuming process and quantitively asses its profit. 
 
 
 
-###Data###
+## Data ##
 For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/National_Science_Bowl "sience bowl") lung cancer data, which is available [here](https://www.kaggle.com/c/data-science-bowl-2017/data "here"):
 - `stage1.7z` - contains all CT images for the first stage of the competition
 - `stage1_labels.csv` - contains the cancer ground truth for the stage 1 training set images
 
 These images are CT scans and thus comprise different slices:
 
-###Code###
+## Code ##
 **Source and adjustments**
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
@@ -31,7 +29,7 @@ The adjustments made:
 To keep the documentation comprehensive we refer to the [original source](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet "original source") of this code for further explanation, and will emphasize the added functionalities as well as the speed up obtained by using the ```gpu``` instead of the ```cpu```.
 
 ------------
-<Br>
+
 
 ***Pre procesing*** (```preprocess.py```)
 We used the original pre-processing code but moved this to a class to be able to easily play with the parameters:
@@ -48,7 +46,6 @@ python preprocess.py -s 50 -c 20 -o data\processed_data -i data\sample_images\ -
 ```
 
 ------------
-<br>
 
 ***Data splitting*** (```splitter.py```)
 To be able to train and test the 3D CNN, the input data needs to be devided into a training, validation and test set.  The original code did this by passing the indices for each set seperately. We added the functionality to do this percentage based.
@@ -70,7 +67,6 @@ This will also show the number of instances in each of the sets:
 [INFO] validate size: 4
 
 ------------
-<br>
 
 ***Model training*** (```cnn.py```)
 Training the model requires the training and validation set obtained from ```splitter.py``` (see above). 
