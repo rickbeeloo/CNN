@@ -141,7 +141,7 @@ The `CNN_adjusted.py` , `Plot.py`, and `evaluation.py` were used to evaluate the
 
 
 ##  Evaluation ##
-**GPU vs CPU**
+**GPU vs CPU** <br>
 The training was performed for different epoch values (`1,5,15,20,25,30,35.40,45,50`) using the `cpu` and the `gpu`. The results can be visualized using `Plot.py` or in R using `Plot.R` (this will require the packages `ggplto2` and `reshape2`)
 ![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title") <br>
 Further we calculated the speed up obtained by utilizing  the `gpu`:
