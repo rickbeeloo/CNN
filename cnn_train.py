@@ -20,6 +20,5 @@ args = parser.parse_args()
 
 # buidling and training the model
 model = CNN(args.image_size, args.slice_count, args.n_classes, args.batch_size, args.keep_rate, args.epochs, args.gpu_usage, args.model_name)
-
 model.train_neural_network(args.training_data, args.validation_data, args.output_path)
 
