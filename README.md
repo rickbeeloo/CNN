@@ -188,7 +188,7 @@ As can be seen from this data we only classified 249 out of the 362 cancerous ex
 
 ![Alt text](images/sick_patient.PNG?raw=true "Title") <br>
 
-We are not doctors but the second slice on the second row clearly contains some abnormality. In contrast we were not able to classify this example:
+We are no doctors but the second slice on the second row clearly contains some abnormality. In contrast we were not able to classify this example:
 
 ![Alt text](images/sick_patient_missed.PNG?raw=true "Title") <br>
 
