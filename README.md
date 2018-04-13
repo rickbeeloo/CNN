@@ -16,7 +16,7 @@ You can clone this repository using ```git clone https://github.com/rickbeeloo/c
  All can be easily installed using `pip install`
 
 ## Data ##
-For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/National_Science_Bowl "sience bowl") lung cancer data, which is available [here](https://www.kaggle.com/c/data-science-bowl-2017/data "here"): 
+For this project we used the [Science Bowl](https://en.wikipedia.org/wiki/National_Science_Bowl "sience bowl") lung cancer data, which is available [here](https://www.kaggle.com/c/data-science-bowl-2017/data "here"): 
 - `stage1.7z` - contains all CT images for the first stage of the competition
 - `sample_images.7z` - a smaller subset set of the full dataset, provided for people who wish to preview the images before downloading the large file.
 - `stage1_labels.csv` - contains the cancer ground truth for the stage 1 training set images
