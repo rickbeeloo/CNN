@@ -27,6 +27,7 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 **Source and adjustments**<br/>
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
+- Making the code compatible with command line arguments
 - Added the ability to test the model on new data
 - Added thorough explanation for each of the parameters required
 - Added the picture ids to the test output to be able to trace the predictions back to the corresponding images
