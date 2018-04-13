@@ -31,7 +31,7 @@ The adjustments made:
 - Added thorough explanation for each of the parameters required
 - Added the picture ids to the test output to be able to trace the predictions back to the corresponding images
 - Wrote the code Object Orientated by accommodating the model in a class as well as the preprocessor
-- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific numbers
+- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific indices
 - Added a function to randomly pop up the CT-scan images for either a *sick* or *healthy* person to get a better understanding of the data
 - The possibility to switch between ```cpu``` and ```gpu```
 - Timing function to time each training round
