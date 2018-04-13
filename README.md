@@ -137,9 +137,8 @@ cnn_test.py -f data/ -t data/test.npy -k 1.0
 ##  Evaluation ##
 **GPU vs CPU**
 The training was performed for different epoch values (`1,5,15,20,25,30,35.40,45,50`) using the `cpu` and the `gpu`. The results were used as input for the `plots.R` scripts which produced the following plot:
-
-Further we calculated the speed up obtained by utilizing  the `gpu`:
 ![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
+Further we calculated the speed up obtained by utilizing  the `gpu`:
 
 Epoch  | GPU |CPU|Speed up
 ------------- | -------------| -------------|-------------
@@ -160,7 +159,7 @@ The average speed up obtained by utilizing the `gpu` is **28x faster**
 
 **Testing the classifier**
 The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
-
+![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
 ID  | Label|Predicted
 ------------- | -------------| -------------
 0a0c32c9e08cc2ea76a71649de56be6d	  | 0 | 0
@@ -168,7 +167,13 @@ ID  | Label|Predicted
 0d19f1c627df49eb223771c28548350e	|0	|0
 0ddeb08e9c97227853422bd71a2a695e	|0	|0
 In this example the achieved accuracy is `100%`  as the label is the same as predicted in every case.
-The provided output format is easy to use as input for [R](https://www.r-project.org/) (for examples see `plots.R`). 
+The provided output format is easy to use as input for [R](https://www.r-project.org/) .
+
+Using the **whole dataset** we get an average accuracy of  `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;).  The confusion matrix corresponding to the whole dataset is:
+
+|  | Healthy |Sick
+------------- | -------------|-------------
+**Healthy**  | 907 |80
+**Sick**|153 |38
 
 
-Using the whole dataset we get an average accuracy of around `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;).  
