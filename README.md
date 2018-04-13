@@ -14,7 +14,7 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 
 These images are CT scans and thus comprise different slices:
 
-## Code ##<br>
+## Code ##<br/>
 **Source and adjustments**<br/>
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
