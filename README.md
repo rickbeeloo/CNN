@@ -27,12 +27,11 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 **Source and adjustments**<br/>
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
-- Making the code compatible with command line arguments
 - Added the ability to test the model on new data
 - Added thorough explanation for each of the parameters required
 - Added the picture ids to the test output to be able to trace the predictions back to the corresponding images
 - Wrote the code Object Orientated by accommodating the model in a class as well as the preprocessor
-- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific indices
+- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific numbers
 - Added a function to randomly pop up the CT-scan images for either a *sick* or *healthy* person to get a better understanding of the data
 - The possibility to switch between ```cpu``` and ```gpu```
 - Timing function to time each training round
@@ -75,9 +74,9 @@ Example:
 python splitter.py -d data\processed_data.npy -r 0.6 -t 0.2 -v 0.2 -o data/
 ```
 This will also show the number of instances in each of the sets:
-> [INFO] total data size: 19 <br>
->[INFO] train size: 11 <br>
->[INFO] validate size: 4
+> [INFO] total data size: 19
+[INFO] train size: 11
+[INFO] validate size: 4
 
 ------------
 
@@ -102,13 +101,13 @@ Example:
 cnn.py -r data/training.npy -v data/validation.npy -o data/
 ```
 This will show the obtained accuracy after each epoch: <br>
->[INFO] Epoch 1 completed out of 10 loss: 8292800128.0 <br>
->[INFO] Accuracy: 0.75
+>[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
+[INFO] Accuracy: 0.75
 
 And after all epochs the overall accuracy, fitment percentages and the total training time: <br>
->[INFO] Finished Accuracy: 0.75 <br>
->[INFO] fitment percent: 1.0 <br>
->[INFO] runtime: 15.150243174234687 
+>[INFO] Finished Accuracy: 0.75
+[INFO] fitment percent: 1.0
+[INFO] runtime: 15.150243174234687
 
 ------------
 
@@ -136,9 +135,31 @@ Example:
 cnn_test.py -f data/ -t data/test.npy -k 1.0
 ```
 ##  Evaluation ##
-**Testing the classifier** <br>
-The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
+**GPU vs CPU**
+The training was performed for different epoch values (`1,5,15,20,25,30,35.40,45,50`) using the `cpu` and the `gpu`. The results were used as input for the `plots.R` scripts which produced the following plot:
+
+Further we calculated the speed up obtained by utilizing  the `gpu`:
 ![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
+
+Epoch  | GPU |CPU|Speed up
+------------- | -------------| -------------|-------------
+1  | 6.007857 | 321.3197 |53.48324
+5  | 9.138309 |381.9040 |41.79154
+10  | 13.228123|454.7322| 34.37617
+15 | 18.195777|529.2489|29.08636
+20 | 23.074444| 607.9874  |26.34895
+25  |  28.200325 | 678.3122 | 24.05335
+30 | 33.673778 | 753.0017| 22.36166
+35 | 39.658525|823.5775|20.76672
+40  |44.755630|900.9654 |20.13077
+45 | 49.822851|981.2035 |19.69385
+50 | 50 54.874518|1061.6786|19.34739
+
+The average speed up obtained by utilizing the `gpu` is **28x faster**
+
+
+**Testing the classifier**
+The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
 
 ID  | Label|Predicted
 ------------- | -------------| -------------
@@ -146,7 +167,6 @@ ID  | Label|Predicted
 0a099f2549429d29b32f349e95fb2244	|0	|0
 0d19f1c627df49eb223771c28548350e	|0	|0
 0ddeb08e9c97227853422bd71a2a695e	|0	|0
-
 In this example the achieved accuracy is `100%`  as the label is the same as predicted in every case.
 The provided output format is easy to use as input for [R](https://www.r-project.org/) (for examples see `plots.R`). 
 
