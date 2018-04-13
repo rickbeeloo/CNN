@@ -8,7 +8,7 @@ Lung cancer is the leading cause of cancer-related deaths for both men and women
 
 
 ## Data ##
-For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/National_Science_Bowl "sience bowl") lung cancer data, which is available [here](https://www.kaggle.com/c/data-science-bowl-2017/data "here"):
+For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/National_Science_Bowl "sience bowl") lung cancer data, which is available [here](https://www.kaggle.com/c/data-science-bowl-2017/data "here"): 
 - `stage1.7z` - contains all CT images for the first stage of the competition
 - `stage1_labels.csv` - contains the cancer ground truth for the stage 1 training set images
 
@@ -25,13 +25,13 @@ The adjustments made:
 - Timing function to time each training round
 - Plot functionallity to plot ```cpu``` time vs ```gpu``` time and to plot accuracy after each epoch
 
-**Steps**
+**Steps** <br>
 To keep the documentation comprehensive we refer to the [original source](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet "original source") of this code for further explanation, and will emphasize the added functionalities as well as the speed up obtained by using the ```gpu``` instead of the ```cpu```.
 
 ------------
 
 
-***Pre procesing*** (```preprocess.py```)
+***Pre procesing*** (```preprocess.py```) <br>
 We used the original pre-processing code but moved this to a class to be able to easily play with the parameters:
 
 Parameter  | Explanation|Default
@@ -47,7 +47,7 @@ python preprocess.py -s 50 -c 20 -o data\processed_data -i data\sample_images\ -
 
 ------------
 
-***Data splitting*** (```splitter.py```)
+***Data splitting*** (```splitter.py```) <br>
 To be able to train and test the 3D CNN, the input data needs to be devided into a training, validation and test set.  The original code did this by passing the indices for each set seperately. We added the functionality to do this percentage based.
 
 Parameter  | explanation | default
@@ -68,7 +68,7 @@ This will also show the number of instances in each of the sets:
 
 ------------
 
-***Model training*** (```cnn.py```)
+***Model training*** (```cnn.py```) <br>
 Training the model requires the training and validation set obtained from ```splitter.py``` (see above). 
 
 Parameter  | Explanation|Default
@@ -88,11 +88,11 @@ Example:
 ```bash
 cnn.py -t data/training.npy -v data/validation.npy -o data/
 ```
-This will show the obtained accuracy after each epoch:
+This will show the obtained accuracy after each epoch: <br>
 >[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
 [INFO] Accuracy: 0.75
 
-And after all epochs the overall accuracy, fitment precentages and the total training time:
+And after all epochs the overall accuracy, fitment precentages and the total training time: <br>
 >[INFO] Finished Accuracy: 0.75
 [INFO] fitment percent: 1.0
 [INFO] runtime: 15.150243174234687
