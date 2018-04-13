@@ -171,13 +171,18 @@ The provided output format is easy to use as input for [R](https://www.r-project
 
 Using the **whole dataset** we get an average accuracy of  `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;).  The confusion matrix corresponding to the whole dataset is:
 
+
 |  | Healthy |Sick
 ------------- | -------------|-------------
 **Healthy**  | 907 |80
 **Sick**|153 |38
 
+
 As can be seen from this data we only classified 38 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
+
 ![Alt text](images/sick_patient.PNG?raw=true "Title")
+
 We are not doctors but the second slice on the second row clearly contains some abnormality. In contrast we were not able to classify this example:
+
 ![Alt text](images/sick_patient_missed.PNG?raw=true "Title")
 
