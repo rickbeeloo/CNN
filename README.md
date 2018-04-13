@@ -137,7 +137,7 @@ Example:
 cnn_test.py -f data/ -t data/test.npy -k 1.0
 ```
 ***Further code*** <br>
-The `CNN_adjusted.py` , `Plot.py`, and `evaluation.py` are used to evaluate the performance of the classfier. The `CNN_adjusted.py` can be excluded whenever your `gpu` has enough memory. However in our case (2Gb memory) we had to write some code to be able to wipe the `gpu` memory used by tensorflow in a for loop. Because tensorflow will only do this after a full process run, we had to simulate each iteration as a proces to be able to terminante it and hence indirectly clear the `gpu` memory before the next iteration would start.<br> 
+The `CNN_adjusted.py` , `Plot.py`, and `evaluation.py` were used to evaluate the performance of the classfier. The `CNN_adjusted.py` can be excluded whenever your `gpu` has enough memory. However in our case (2Gb memory) we had to write some code to be able to wipe the `gpu` memory used by tensorflow in a for loop. Because tensorflow will only do this after a full process run, we had to simulate each iteration as a proces to be able to terminante it and hence indirectly clear the `gpu` memory before the next iteration would start.<br> 
 
 
 ##  Evaluation ##
