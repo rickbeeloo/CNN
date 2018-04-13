@@ -113,6 +113,7 @@ And after all epochs the overall accuracy, fitment precentages and the total tra
 ***Model testing*** (```cnn_test.py```) <br>
 Training the model requires the test set obtained from ```splitter.py``` (see above). 
 The paramters `-s` , `-c`, `-a`, `-b`, `-e` , and `-n` should generally be the same as for training. Often the keep rate (`-k`) is varied. 
+
 Parameter  | Explanation|Default
 ------------- | -------------| -------------
 ```-s```  | The pixels to which the image should be adjusted to | 50
