@@ -44,7 +44,7 @@ To keep the documentation comprehensive we refer to the [original source](https:
 
 
 ***Pre procesing*** (```preprocess.py```) <br>
-We used the original pre-processing code but moved this to a class to be able to easily play with the parameters:
+We used the original pre-processing code but moved this to a class to be able to easily play with the parameters: <br>
 
 Parameter  | Explanation|Default
 ------------- | -------------| -------------
@@ -52,6 +52,7 @@ Parameter  | Explanation|Default
 ```-c```  | Number of slices to normalize to|20
 ```-o```  | The location to which the output should be written|-
 ```-i```  | Path to the folder containing the images|-
+
 Example:
 ```bash
 python preprocess.py -s 50 -c 20 -o data\processed_data -i data\sample_images\ -m data\stage1_labels.csv
@@ -69,6 +70,7 @@ Parameter  | explanation | default
 ```-v```  | % of the data that needs to be used for validation|-
 ```-t```  | % of the data that needs to be used for testing|-
 ```-o```  | output_folder|-
+
 Example:
 ```bash
 python splitter.py -d data\processed_data.npy -r 0.6 -t 0.2 -v 0.2 -o data/
@@ -159,12 +161,14 @@ The average speed up obtained by utilizing the `gpu` is **28x faster**
 
 **Testing the classifier**<br>
 The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
+
 ID  | Label|Predicted
 ------------- | -------------| -------------
 0a0c32c9e08cc2ea76a71649de56be6d	  | 0 | 0
 0a099f2549429d29b32f349e95fb2244	|0	|0
 0d19f1c627df49eb223771c28548350e	|0	|0
 0ddeb08e9c97227853422bd71a2a695e	|0	|0
+
 In this example the achieved accuracy is `100%`  as the label is the same as predicted in every case.
 The provided output format is easy to use as input for [R](https://www.r-project.org/) .
 
@@ -174,6 +178,7 @@ Using the **whole dataset** we get an average accuracy of  `77%` , while this se
 ------------- | -------------|-------------
 **Healthy**  | 820 |205
 **Sick**|113 |249
+
 (*The columns are the predictions whereas the rows are the actual classes*).
 As can be seen from this data we only classified 249 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
 
