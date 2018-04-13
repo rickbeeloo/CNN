@@ -28,8 +28,8 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
 - Added the ability to test the model on new data
-- Added thorough exlanation for each of the paramters required
-- Wrote the code Object Orientated by accommodating the model in a class as wel as the preprocessor
+- Added thorough explanation for each of the parameters required
+- Wrote the code Object Orientated by accommodating the model in a class as well as the preprocessor
 - Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific numbers
 - Added a function to randomly pop up the CT-scan images for either a *sick* or *healthy* person to get a better understanding of the data
 - The possibility to switch between ```cpu``` and ```gpu```
@@ -59,7 +59,7 @@ python preprocess.py -s 50 -c 20 -o data\processed_data -i data\sample_images\ -
 ------------
 
 ***Data splitting*** (```splitter.py```) <br>
-To be able to train and test the 3D CNN, the input data needs to be devided into a training, validation and test set.  The original code did this by passing the indices for each set seperately. We added the functionality to do this percentage based.
+To be able to train and test the 3D CNN, the input data needs to be divided into a training, validation and test set.  The original code did this by passing the indices for each set separately. We added the functionality to do this percentage based.
 
 Parameter  | explanation | default
 ------------- | -------------|-------------
@@ -103,7 +103,7 @@ This will show the obtained accuracy after each epoch: <br>
 >[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
 [INFO] Accuracy: 0.75
 
-And after all epochs the overall accuracy, fitment precentages and the total training time: <br>
+And after all epochs the overall accuracy, fitment percentages and the total training time: <br>
 >[INFO] Finished Accuracy: 0.75
 [INFO] fitment percent: 1.0
 [INFO] runtime: 15.150243174234687
@@ -131,5 +131,5 @@ Example:
 ```bash
 cnn_test.py -f data/ -t data/test.npy -k 1.0
 ```
-## Results ##
-
+##  Evaluation ##
+Using the whole dataset we get an average accuracy of around `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;). 
