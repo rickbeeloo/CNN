@@ -143,7 +143,7 @@ The `CNN_adjusted.py` , `Plot.py`, and `evaluation.py` are used to evaluate the 
 ##  Evaluation ##
 **GPU vs CPU**
 The training was performed for different epoch values (`1,5,15,20,25,30,35.40,45,50`) using the `cpu` and the `gpu`. The results were used as input for the `plots.R` scripts which produced the following plot:
-![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
+![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title") <br>
 Further we calculated the speed up obtained by utilizing  the `gpu`:
 
 Epoch  | GPU |CPU|Speed up
@@ -186,11 +186,11 @@ Using the **whole dataset** we get an average accuracy of  `77%` , while this se
 (*The columns are the predictions whereas the rows are the actual classes*). <br>
 As can be seen from this data we only classified 249 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
 
-![Alt text](images/sick_patient.PNG?raw=true "Title")
+![Alt text](images/sick_patient.PNG?raw=true "Title") <br>
 
 We are not doctors but the second slice on the second row clearly contains some abnormality. In contrast we were not able to classify this example:
 
-![Alt text](images/sick_patient_missed.PNG?raw=true "Title")
+![Alt text](images/sick_patient_missed.PNG?raw=true "Title") <br>
 
 But by eyeballing we weren't able to classify it ourselves. That the tumor is not visible in this scan is probably due to the the oversaturation, and therefore we should correct for this in the future (see discussion). 
 
