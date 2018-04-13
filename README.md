@@ -76,9 +76,9 @@ Example:
 python splitter.py -d data\processed_data.npy -r 0.6 -t 0.2 -v 0.2 -o data/
 ```
 This will also show the number of instances in each of the sets:
-> [INFO] total data size: 19
-[INFO] train size: 11
-[INFO] validate size: 4
+> [INFO] total data size: 19 <br>
+>[INFO] train size: 11 <br>
+>[INFO] validate size: 4 <br>
 
 ------------
 
@@ -103,13 +103,13 @@ Example:
 cnn.py -r data/training.npy -v data/validation.npy -o data/
 ```
 This will show the obtained accuracy after each epoch: <br>
->[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
-[INFO] Accuracy: 0.75
+>[INFO] Epoch 1 completed out of 10 loss: 8292800128.0<br>
+>[INFO] Accuracy: 0.75
 
 And after all epochs the overall accuracy, fitment percentages and the total training time: <br>
->[INFO] Finished Accuracy: 0.75
-[INFO] fitment percent: 1.0
-[INFO] runtime: 15.150243174234687
+>[INFO] Finished Accuracy: 0.75<br>
+>[INFO] fitment percent: 1.0 <br>
+>[INFO] runtime: 15.150243174234687 
 
 ------------
 
