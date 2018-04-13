@@ -69,7 +69,7 @@ class PreProcessor:
                 print("[INFO] time elapsed: {} minutes".format(timer() - start / 60))
             try:
                 img_data, label = self.process_patient(patient)
-                much_data.append([img_data, label])
+                much_data.append([img_data, label, str(patient)])
             except KeyError as e:
                 print('[INFO] Patient {} does not have metadata coupled'.format(num))
                 print('[INFO] This will not cause any problems, but the patient will not be included')

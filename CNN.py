@@ -2,9 +2,13 @@ import tensorflow as tf
 import timeit
 import argparse
 import traceback
+import csv
 import numpy as np
 
 class CNN:
+    """
+    This class
+    """
 
     def __init__(self, img_size_px, slice_count, n_classes, batch_size, keep_rate,
                  hm_epochs, gpu = True, model_name = 'model'):
@@ -76,10 +80,27 @@ class CNN:
                 device_count={'GPU': 0}
             )
 
-    def test_neural_network(self, test_data, model_name, model_folder):
+    def __reverse_label(self, labels):
+        """
+        Reverse the input format for tensorflow to human readable format
+        :param labels:
+        :return:
+        """
+        return [1 if label[1] == 1 else 0 for label in labels]
+
+
+    def __write_stats(self, ids, labels, predicted, output_path):
+        with open(output_path,'w') as out_file:
+            header = ['id','label','predicted']
+            writer = csv.writer(out_file, delimiter='\t')
+            writer.writerows([header])
+            writer.writerows(zip(*[ids, self.__reverse_label(labels), self.__reverse_label(labels)]))
+
+    def test_neural_network(self, test_data, model_name, model_folder, output_path = None):
         x = tf.placeholder('float')
         y = tf.placeholder('float')
         prediction = self.__convolutional_neural_network(x)
+
         with tf.Session() as sess:
             sess.run(tf.initialize_all_variables())
             saver = tf.train.Saver()
@@ -94,17 +115,25 @@ class CNN:
             accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
 
             test_data = np.load(test_data)
-            features, labels = [],[]
+            ids, features, labels =[],[],[]
+
             for item in test_data:
                 data = item[0]
-                id = item[1]
+                label = item[1]
+                id = item[2]
+                ids.append(id)
                 features.append(data)
-                labels.append(id)
+                labels.append(label)
+
             test_x = np.array(features)
             test_y = np.array(labels)
-            print(test_x)
-            print(test_y)
-            print('Accuracy:', accuracy.eval({x: test_x, y: test_y}))
+
+            if output_path:
+                predicted = sess.run(tf.argmax(test_y, 1), feed_dict={x: test_x})
+                self.__write_stats(ids, labels, predicted, output_path)
+                print('[INFO] test stats written to: {}'.format(output_path))
+
+            print('[INFO] Accuracy:', accuracy.eval({x: test_x, y: test_y}))
 
 
     def train_neural_network(self, train_data, validation_data,output_folder = '', return_output = False):
