@@ -170,14 +170,12 @@ The provided output format is easy to use as input for [R](https://www.r-project
 
 Using the **whole dataset** we get an average accuracy of  `77%` , while this seems pretty good simply predicting the majority class in the dataset will give `74%` accuracy as the dataset consists of 1035 non-cancer and 362 cancerous examples. But yeaah we made it 3% better ;).  The confusion matrix corresponding to the whole dataset is:
 
-
 |  | Healthy |Sick
 ------------- | -------------|-------------
-**Healthy**  | 907 |80
-**Sick**|153 |38
-
-
-As can be seen from this data we only classified 38 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
+**Healthy**  | 820 |205
+**Sick**|113 |249
+(*The columns are the predictions whereas the rows are the actual classes*).
+As can be seen from this data we only classified 249 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
 
 ![Alt text](images/sick_patient.PNG?raw=true "Title")
 
@@ -185,3 +183,7 @@ We are not doctors but the second slice on the second row clearly contains some 
 
 ![Alt text](images/sick_patient_missed.PNG?raw=true "Title")
 
+But by eyeballing we weren't able to classify it ourselves. That the tumor is not visible in this scan is probably due to the the oversaturation, and therefore we should correct for this in the future (see discussion). 
+
+##  Discussion ##
+The neural network itself is almost definitely still sub-optimal, we have done no comparisons for classifier performance with more (or fewer) neural layers or other parameters. The performance of this classifier hasn't yet been tested on images of other lung diseases (which should get classified as not cancer), in reality it might well happen that a patient has a different disease which our classifier will predict as lung cancer. Furthermore,  a color correction should definitely be applied in the future as the contrast differences can (and certainly do in the above presented misclassification) affect the classifier performance. 
