@@ -74,8 +74,8 @@ Example:
 python splitter.py -d data\processed_data.npy -r 0.6 -t 0.2 -v 0.2 -o data/
 ```
 This will also show the number of instances in each of the sets:
-> [INFO] total data size: 19
->[INFO] train size: 11
+> [INFO] total data size: 19 <br>
+>[INFO] train size: 11 <br>
 >[INFO] validate size: 4
 
 ------------
@@ -101,13 +101,13 @@ Example:
 cnn.py -r data/training.npy -v data/validation.npy -o data/
 ```
 This will show the obtained accuracy after each epoch: <br>
->[INFO] Epoch 1 completed out of 10 loss: 8292800128.0
+>[INFO] Epoch 1 completed out of 10 loss: 8292800128.0 <br>
 >[INFO] Accuracy: 0.75
 
 And after all epochs the overall accuracy, fitment percentages and the total training time: <br>
->[INFO] Finished Accuracy: 0.75
->[INFO] fitment percent: 1.0
->[INFO] runtime: 15.150243174234687
+>[INFO] Finished Accuracy: 0.75 <br>
+>[INFO] fitment percent: 1.0 <br>
+>[INFO] runtime: 15.150243174234687 
 
 ------------
 
@@ -144,6 +144,7 @@ ID  | Label|Predicted
 0a099f2549429d29b32f349e95fb2244	|0	|0
 0d19f1c627df49eb223771c28548350e	|0	|0
 0ddeb08e9c97227853422bd71a2a695e	|0	|0
+
 In this example the achieved accuracy is `100%`  as the label is the same as predicted in every case.
 The provided output format is easy to use as input for [R](https://www.r-project.org/) (for examples see `plots.R`). 
 
