@@ -28,9 +28,9 @@ For this project we used the [Sience Bowl](https://en.wikipedia.org/wiki/Nationa
 We adjusted [this code](https://www.kaggle.com/sentdex/first-pass-through-data-w-3d-convnet/notebook "this code") from Sentdex and therefore credits to him.  
 The adjustments made:
 - Added the ability to test the model on new data
-- Added thorough explanation for each of the parameters required
+- Added thorough explanation for each of the required parameters
 - Wrote the code Object Orientated by accommodating the model in a class as well as the preprocessor
-- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing specific numbers
+- Added a script to split the dataset randomly into a training, validation and test set based on percentages rather than providing the list indices manually. 
 - Added a function to randomly pop up the CT-scan images for either a *sick* or *healthy* person to get a better understanding of the data
 - The possibility to switch between ```cpu``` and ```gpu```
 - Timing function to time each training round
