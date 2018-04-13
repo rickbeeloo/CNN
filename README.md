@@ -154,7 +154,7 @@ Epoch  | GPU |CPU|Speed up
 45 | 49.822851|981.2035 |19.69385
 50 | 50 54.874518|1061.6786|19.34739
 
-The average speed up obtained by utilizing the `gpu` is **28x faster**
+Using the GPU will make the training on average `gpu` is **28x faster**
 
 
 **Testing the classifier**
