@@ -154,12 +154,12 @@ Epoch  | GPU |CPU|Speed up
 45 | 49.822851|981.2035 |19.69385
 50 | 50 54.874518|1061.6786|19.34739
 
-Using the GPU will make the training on average `gpu` is **28x faster**
+The average speed up obtained by utilizing the `gpu` is **28x faster**
 
 
 **Testing the classifier**
 The original source code did not contain any testing code so we added this (see above). Besides providing the obtained accuracy this will also produce a list containing the patient id, the given class and the predicted class. For example when running the test code on the sample image test set this will give the following output:
-
+![Alt text](images/gpu_vs_cpu.PNG?raw=true "Title")
 ID  | Label|Predicted
 ------------- | -------------| -------------
 0a0c32c9e08cc2ea76a71649de56be6d	  | 0 | 0
@@ -176,4 +176,8 @@ Using the **whole dataset** we get an average accuracy of  `77%` , while this se
 **Healthy**  | 907 |80
 **Sick**|153 |38
 
+As can be seen from this data we only classified 38 out of the 362 cancerous examples. We could only classify obivous cancerours example, as for example this one:
+![Alt text](images/sick_patient.PNG?raw=true "Title")
+We are not doctors but the second slice on the second row clearly contains some abnormality. In contrast we were not able to classify this example:
+![Alt text](images/sick_patient_missed.PNG?raw=true "Title")
 
